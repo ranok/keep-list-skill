@@ -1,15 +1,15 @@
 
 skillMetadata:
   sections:
-    - name: Login << Name of another section
+    - name: Login details
       fields:
         - type: label
           label: Google account details for Keep access
-        - name: email
-          type: text
+        - name: keep_username
+          type: email
           label: GMail Address
           value: ""
-        - name: password
+        - name: keep_password
           type: password
-          label: Password (or App Password with MFA setup)
+          label: Password (or MFA App Password)
           value: ""
