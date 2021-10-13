@@ -130,7 +130,10 @@ class KeepList(MycroftSkill):
                 if res[1]:
                     self.speak(item + ' was found on your ' + lname + ' list, but it is marked as done')
                 else:
-                    self.speak('yes, ' + item + ' is on your ' + lname + ' list')
+                    if item[-1] == 's':
+                        self.speak('yes, ' + item + ' are on your ' + lname + ' list')
+                    else:
+                        self.speak('yes, ' + item + ' is on your ' + lname + ' list')
             else:
                 self.speak(item + ' was not found on your ' + lname + ' list')
         else:
