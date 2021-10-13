@@ -110,6 +110,32 @@ class KeepList(MycroftSkill):
         else:
             self.speak('Sorry, I did not catch what you wanted to add, please try again')    
 
+    @intent_file_handler('query.list.intent')
+    def handle_list_query(self, message):
+        lname = message.data.get('lname')
+        item = message.data.get('item')
+        if lname is None:
+            self.speak('Unable to understand which list you were referring to, please try again')
+            self.log.info(str(message.data))
+            return
+        if lname.find('shop') != -1:
+            slist = self.get_list('Mycroft Shopping List')
+            lname = 'shopping'
+        else:
+            slist = self.get_list('Mycroft Todo List')
+            lname = 'to do'
+        if item is not None:
+            res = self.search_list(slist, item)
+            if res[0]:
+                if res[1]:
+                    self.speak(item + ' was found on your ' + lname + ' list, but it is marked as done')
+                else:
+                    self.speak('yes, ' + item + ' is on your ' + lname + ' list')
+            else:
+                self.speak(item + ' was not found on your ' + lname + ' list')
+        else:
+            self.speak('Sorry, I did not catch your query, please try again')
+
     def stop(self):
         pass
 
