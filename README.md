@@ -1,4 +1,4 @@
-# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/robot.svg" card_color="#22A7F0" width="50" height="50" style="vertical-align:bottom"/> Keep List
+# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/check-square.svg" card_color="#D5D11D" width="50" height="50" style="vertical-align:bottom"/> Keep List
 Allows for keep list management for todos and and shopping list
 
 ## About
@@ -16,5 +16,7 @@ Jacob Torrey (@ranok)
 **Productivity**
 
 ## Tags
-##lists
+#lists
+#keep
+#google
 
