@@ -21,6 +21,14 @@ class KeepList(MycroftSkill):
             return lists[0]
         return None
 
+    def try_create_lists(self):
+        if self.keep is None:
+            return False
+        if self.get_list('Mycroft Shopping List') is None:
+            self.keep.createList('Mycroft Shopping List', [])
+        if self.get_list('Mycroft Todo List') is None:
+            self.keep.createList('Mycroft Todo List', [])
+
     def search_list(self, l, item):
         '''Searches for the presence of an item in the list'''
         for i in l.items:
@@ -52,6 +60,7 @@ class KeepList(MycroftSkill):
         try:
             self.keep = gkeepapi.Keep()
             self.keep.login(email, password)
+            self.try_create_lists()
             self.log.info('Login to Google Keep successful')
         except gkeepapi.exception.LoginException:
             self.log.info('Unable to login to Google Keep')
